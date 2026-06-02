@@ -1,0 +1,22 @@
+name: Terraform Plan
+
+# PR が作られたら plan を実行し、差分をレビュー材料にする。
+
+on:
+  pull_request:
+    paths:
+      - "environments/dev/vpc/**"
+      - "modules/vpc/**"
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  plan:
+    uses: ./.github/workflows/terraform.yml
+    with:
+      working-directory: environments/dev/vpc
+      command: plan
+    secrets:
+      role-arn: ${{ secrets.TF_ROLE_ARN }}

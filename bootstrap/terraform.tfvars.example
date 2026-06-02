@@ -1,0 +1,5 @@
+# cp して terraform.tfvars にリネームし、値を埋める
+state_bucket_name = "sho-org-tfstate-XXXX" # グローバル一意にする
+github_owner      = "sho-org"
+github_repo       = "vpc-iac"
+# region / lock_table_name / role_name は既定値でよければ省略可

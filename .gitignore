@@ -1,0 +1,20 @@
+# Terraform 作業ファイル（コミット禁止）
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfplan
+tfplan
+
+# 機密を含みやすい tfvars は除外（.example は追跡し続ける）
+*.tfvars
+*.tfvars.json
+
+# override 系・CLI 設定
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc

@@ -1,0 +1,23 @@
+name: Terraform Apply
+
+# main にマージされたら apply を実行し、実際に VPC+IGW を作成/更新する。
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "environments/dev/vpc/**"
+      - "modules/vpc/**"
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  apply:
+    uses: ./.github/workflows/terraform.yml
+    with:
+      working-directory: environments/dev/vpc
+      command: apply
+    secrets:
+      role-arn: ${{ secrets.TF_ROLE_ARN }}
