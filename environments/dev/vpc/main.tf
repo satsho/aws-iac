@@ -3,7 +3,7 @@ terraform {
   required_version = ">= 1.6"
 
   backend "s3" {
-    bucket         = "REPLACE-WITH-STATE-BUCKET"
+    bucket         = "terraform-state-repo-satsho"
     key            = "dev/vpc/terraform.tfstate"
     region         = "ap-northeast-1"
     dynamodb_table = "tfstate-lock"
